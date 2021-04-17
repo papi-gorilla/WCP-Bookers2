@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render partial: "user_info", locals: {user: @user} %>
+      <%= render partial: "new_book", locals: {book: @book} %>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              プロ画像<br />
+              name
+            </td>
+            <td><%= link_to @books.title, book_path(@books.id) %></td>
+            <td><%= @books.body %></td>
+            <td><%= link_to "Edit", edit_book_path(@books.id), class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to "Destroy", book_path(@books.id), method: :delete, class: "btn btn-sm btn-danger" %></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
