@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user=User.find_by(id: params[:id])
+    @user=User.find(params[:id])
     @book=Book.new
     @books=@user.books
   end
@@ -19,6 +19,12 @@ class UsersController < ApplicationController
     @user=User.find(params[:id])
     @user.update(user_params)
     redirect_to user_path(@user.id)
+  end
+
+  def destroy
+    @user=User.find(id)
+    @user.destroy
+    redirect_to books_path
   end
 
   private
