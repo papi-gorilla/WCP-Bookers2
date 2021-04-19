@@ -12,8 +12,10 @@
         <tbody>
           <tr>
             <td>
-              プロ画像<br />
-              name
+              <%= link_to user_path(@user.id) do %>
+                <%= attachment_image_tag @user, :profile_image, size: "40x40", fallback: "no_image.jpeg" %><br />
+                <%= @user.name %>
+              <% end %>
             </td>
             <td><%= link_to @books.title, book_path(@books.id) %></td>
             <td><%= @books.body %></td>
